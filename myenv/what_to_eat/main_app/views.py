@@ -17,8 +17,8 @@ def home(request):
 @csrf_exempt
 def RecipeAPI(request, id=0):
     if request.method=='GET':
-        recipes = Recipe.objects.all()
-        recipes_serializer = RecipeSerializer(Recipe, many=True)
+        Recipes = Recipe.objects.all()
+        recipes_serializer = RecipeSerializer(Recipes, many=True)
         return JsonResponse(recipes_serializer.data, safe=False)
     
     elif request.method=='POST':
@@ -48,7 +48,7 @@ def RecipeAPI(request, id=0):
 def MemberAPI(request, id=0):
     if request.method=='GET':
         Members = Member.objects.all()
-        Members_serializer = MemberSerializer(Member, many=True)
+        Members_serializer = MemberSerializer(Members, many=True)
         return JsonResponse(Members_serializer.data, safe=False)
     
     elif request.method=='POST':
